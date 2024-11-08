@@ -24,6 +24,8 @@ function doPost(e) {
           };
         } else {
           switch (inputMessage) {
+            case "journaling":
+            case "Journaling":
             case "journal":
             case "Journal":
             case "じゃーなる":
@@ -55,17 +57,14 @@ function doPost(e) {
               return;
           }
         }
-
-        if (messageToReply === "") {
+        if (!messageToReply || Object.keys(messageToReply).length === 0) {
           return;
         }
-
         let options = {
           method: "post",
           headers: HEADERS,
           payload: JSON.stringify(messageToReply),
         };
-
         try {
           UrlFetchApp.fetch(REPLY_URL, options);
         } catch (error) {
@@ -78,8 +77,16 @@ function doPost(e) {
         LOG_SHEET.getRange(newRow, 1).setValue(userId + " unfollowed.");
       }
     });
-  } catch (e) {
     const newRow = LOG_SHEET.getLastRow() + 1;
-    LOG_SHEET.getRange(newRow, 1).setValue(e.message);
+    LOG_SHEET.getRange(newRow, 1).setValue(events[0]);
+  } catch (error) {
+    const newRow = LOG_SHEET.getLastRow() + 1;
+    LOG_SHEET.getRange(newRow, 1).setValue(
+      "Error: " + error.message + "\nStack: " + error.stack
+    );
+  } finally {
+    return ContentService.createTextOutput("OK").setMimeType(
+      ContentService.MimeType.TEXT
+    );
   }
 }
