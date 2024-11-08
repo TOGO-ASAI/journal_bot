@@ -15,7 +15,7 @@ function wordlist(language) {
       language_switched: "Language is switched to English.",
       set_journal_time: "The journal time has been set.",
       change_time_reply:
-        "Please set the time for the journal verse to be automatically sent.\n・You can set the time in 30-minute intervals from 00:00 to 23:30.\n・Please send the time in 24-hour format using half-width characters and follow the hh:mm format (e.g., 09:00, 20:30).",
+        "Please set the time for the journal verse to be automatically sent.\n・You can set the time in 30-minute intervals from 00:00 to 23:30.\n・Please send the time in 24-hour format and follow the hh:mm format (e.g., 09:00, 20:30).",
       congrats_message:
         "Congratulations on completing one month of journaling!\nToday, try reading the Bible yourself and journaling about it!!\nhttps://www.bible.com/",
     },

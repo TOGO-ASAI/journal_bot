@@ -1,5 +1,3 @@
-dayjs.dayjs.locale("ja");
-
 function sendMessage(userId, messageText) {
   let messageContent = {
     to: userId,
@@ -130,6 +128,7 @@ function languageSwitch(userRow, userLanguage) {
 }
 
 function getActiveUsers() {
+  //アクティブユーザーさえ絞れればOK
   const lastRow = MASTER_SHEET.getLastRow();
   const lastCol = MASTER_SHEET.getLastColumn();
   const savedUsers = MASTER_SHEET.getRange(

@@ -29,3 +29,5 @@ function getAPI() {
 function getSpreadSheetId() {
   return PropertiesService.getScriptProperties().getProperty("SPREAD_SHEET_ID");
 }
+
+dayjs.dayjs.locale("ja");
